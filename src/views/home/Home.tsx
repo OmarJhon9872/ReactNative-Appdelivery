@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {
 	Image,
 	StyleSheet,
@@ -15,9 +15,20 @@ import { RootStackParamList } from '../../../App';
 
 export const HomeScreen = () => {
 
-    // Para emplear la navegacion entre componentes
+    // Para emplear la navegacion entre componentes HOOK
     // Solucionar el error al emplear "navigation.navigate" error de param name
+	// 1.-Usar el siguiente hook
+	// 2.- Empleamos objeto navigation.navigate para colocar enlace dentro de un TouchableOpacity
+	// 3.- En App.tsx RootStackParamList para indicar que las vistas no reciben parametros
+	// 4.- Pasamos tipado de dato RootStackParamList a Stack en App.tsx
+	// 5.- Tipamos datos en el Hook useNavigation a continuación
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>()
+
+	//SetStates de un componente, empleando importacion "useState", tomar parametros
+	//verificar los TextInput, atributo value y onChangeText
+	const [email, setEmail] 	  = useState('')
+	const [password, setPassword] = useState('')
+
 
     return (
 		<View style={styles.sectionContainer}>
@@ -37,11 +48,13 @@ export const HomeScreen = () => {
 				<Text style={styles.formularioText}>INGRESAR</Text>
 
 				<View style={styles.formularioInputGroup}>
-					<Image source={require('./../../../assets/email.png')}
+					<Image  source={require('./../../../assets/email.png')}
 							style={styles.formularioIconCorreo}/>
-					<TextInput placeholder='Correo electronico'
+					<TextInput  placeholder='Correo electronico'
 								style={styles.formularioTextInput}
-								keyboardType='email-address'/>
+								keyboardType='email-address'
+								value={ email }
+								onChangeText={ textoUsuario => setEmail(textoUsuario) } />
 				</View>
 
 				<View style={styles.formularioInputGroup}>
@@ -49,14 +62,19 @@ export const HomeScreen = () => {
 							style={styles.formularioIconCorreo}/>
 					<TextInput placeholder='Contraseña'
 								style={styles.formularioTextInput}
-								secureTextEntry={true}/>
+								secureTextEntry={true}
+								value={ password }
+								onChangeText={ textoUsuario => setPassword(textoUsuario) }/>
 				</View>
 
 				<View style={{marginTop:30}}>
-					{/* <Button title='ENTRAR'
-							onPress={ () => ToastAndroid.show('hola', ToastAndroid.LONG)}
-							color={'orange'}/> */}
-					<RoundedButton text='ENTRAR' onPress={ () => ToastAndroid.show('Hola como estas', ToastAndroid.SHORT)}/>
+					{/* <Button title='ENTRAR' onPress={ () => ToastAndroid.show('hola', ToastAndroid.LONG)}/> */}
+
+					<RoundedButton text='ENTRAR' onPress={ () => {
+						console.log('Email: '+ email);
+						console.log('Contra: '+ password);
+						
+					}}/>
 				</View>
 
 				<View style={styles.formularioRegistrate}>
