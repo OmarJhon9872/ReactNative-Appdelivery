@@ -1,6 +1,6 @@
 import React from 'react'
 import { TouchableOpacity, Text, StyleSheet } from 'react-native'
-import { MyColors } from '../theme/AppTheme'
+import { MyColors } from './../theme/AppTheme'
 
 //COMPONENTE BASE CREADO CON SNIPET "racf"
 //* 1 Para pasar parametros
