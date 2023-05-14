@@ -32,10 +32,10 @@ const RegisterStyles = StyleSheet.create({
 	},
 	logoImagen: {
 		alignSelf: 'center',
-		margin: 'auto', 
+		margin: 'auto',
 		width: 100,
 		height: 100,
-	}, 
+	},
 	logoText: {
 		color: 'white',
 		textAlign: 'center',

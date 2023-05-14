@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native'
+import { Image, Text, View } from 'react-native'
 import { RoundedButton } from '../../components/RoundedButton';
 //importamos el viewmodel a emplear
 import useViewModel from './ViewModel';
@@ -22,14 +22,14 @@ export const RegisterScreen = () => {
 
 	return (
 		<View style={styles.sectionContainer}>
-			<Image source={require('./../../../../assets/chef.jpg')} 
+			<Image source={require('./../../../../assets/chef.jpg')}
 					style={styles.imageBackground}/>
 
 		 	{/* //Logo de app */}
 			<View style={styles.logoContainer}>
 				<Image source={require('./../../../../assets/user_image.png')}
 						style={styles.logoImagen}/>
-				
+
 				<Text style={styles.logoText}>Selecciona una imagen</Text>
 			</View>
 
@@ -45,7 +45,7 @@ export const RegisterScreen = () => {
 					value={ name }
 					onChangeText={ onChange }
 					/>
-				
+
 				<CustomTextInput
 					image={ require('./../../../../assets/my_user.png') }
 					placeholder='Apellidos'
@@ -54,7 +54,7 @@ export const RegisterScreen = () => {
 					value={ lastname }
 					onChangeText={ onChange }
 					/>
-				
+
 				<CustomTextInput
 					image={ require('./../../../../assets/email.png') }
 					placeholder='Correo electronico'
@@ -93,7 +93,7 @@ export const RegisterScreen = () => {
 					onChangeText={ onChange }
 					/>
 
-				<View style={{marginTop:20}}>				
+				<View style={{marginTop:20}}>
 					<RoundedButton text='CONFIRMAR' onPress={ () => register()}/>
 				</View>
 			</View>
